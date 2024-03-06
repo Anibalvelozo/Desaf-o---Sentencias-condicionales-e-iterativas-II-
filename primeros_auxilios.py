@@ -4,8 +4,12 @@ def imprimir_mensaje(mensaje):
     print("\033[;34m" + mensaje)
 
 def chequear_respuesta(pregunta):
-    respuesta = input(pregunta).lower()
-    return respuesta
+    while True:
+        respuesta = input(pregunta).lower()
+        if respuesta == "si" or respuesta == "no":
+            return respuesta
+        else:
+            print("Por favor, responde 'si' o 'no'.")
 
 def primeros_auxilios():
     imprimir_mensaje("Primeros Auxilios\n")
@@ -23,7 +27,7 @@ def primeros_auxilios():
             print("Administrar 5 Ventilaciones  y llamar a la Ambulancia")
 
 def ciclo_urgencia():
-       while True:
+    while True:
         signos_de_vida = chequear_respuesta("¿Signos de vida? (si/no): ")
         if signos_de_vida == "si":
             print("Revaluar a la espera de la ambulancia.")
@@ -37,6 +41,6 @@ def ciclo_urgencia():
             llego_ambulancia = chequear_respuesta("¿Llegó la ambulancia? (si/no): ")
             if llego_ambulancia == "si":
                 quit()
-  
+
 primeros_auxilios()
 ciclo_urgencia()
